@@ -1,0 +1,54 @@
+{
+  "members": [
+    {
+      "memberName": "Suresh",
+      "memberAge": 30,
+      "memberAddress": {
+        "city": "Lucknow",
+        "state": "UP"
+      }
+    },
+    {
+      "memberName": "Sonali",
+      "memberAge": 29,
+      "memberAddress": {
+        "city": "Patna",
+        "state": "Bihar"
+      }
+    },
+    {
+      "memberName": "Ramesh",
+      "memberAge": 37,
+      "memberAddress": {
+        "city": "Kolkata",
+        "state": "West Bengal"
+      }
+    }
+  ]
+}
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+File file = new File("src/test/resources/members.json");
+ObjectMapper mapper = new ObjectMapper();
+
+// Parse JSON file
+JsonNode rootNode = mapper.readTree(file);
+JsonNode membersArray = rootNode.get("members");
+
+// Iterate over members
+for (JsonNode member : membersArray) {
+    given()
+        .contentType("application/json")
+        .body(member.toString())   // send one member object
+    .when()
+        .post("/yourEndpoint")
+    .then()
+        .statusCode(200);
+}
+
+
+
+
+

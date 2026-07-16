@@ -1,0 +1,6 @@
+package com.mbm.enums;
+
+public enum ConfigProperties {
+	USERNAME, PASSWORD, ENV, BASEURL, AUTHTYPE, CLIENTID, CLIENTSECRET,AUTHURL,TOKEN_EXPIRY_BUFFER
+
+}

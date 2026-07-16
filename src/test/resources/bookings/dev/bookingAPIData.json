@@ -1,0 +1,12 @@
+{
+  "baseUrl": "https://restful-booker.herokuapp.com",
+  "endpoints": {
+    "getBookingIds": "/booking",
+    "createBooking": "/booking",
+    "getBooking": "/booking/{bookingId}",
+    "getAccessToken": "/auth",
+    "updateBooking": "/booking/{bookingId}",
+    "partialUpdateBooking": "/booking/{bookingId}",
+    "deleteBooking": "/booking/{bookingId}"
+  }
+}

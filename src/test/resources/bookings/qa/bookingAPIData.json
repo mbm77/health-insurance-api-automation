@@ -1,0 +1,15 @@
+{
+  "baseUrl": "https://restful-booker.herokuapp.com",
+  "endpoints": {
+    "getBookingIds": "/booking",
+    "createBooking": "/booking",
+    "getBooking": "/booking/{bookingId}",
+    "getAccessToken": "/auth",
+    "updateBooking": "/booking/{bookingId}",
+    "partialUpdateBooking": "/booking/{bookingId}",
+    "deleteBooking": "/booking/{bookingId}"
+  }
+}
+
+cd D:\apache-jmeter-5.6.3\bin
+jmeter -n -t D:\apache-jmeter-5.6.3\bin\JMeterProjects\RestfulBooker\RestfulBooker.jmx -l C:\Users\user\Desktop\results\smoke.jtl -e -o D:\apache-jmeter-5.6.3\bin\JMeterProjects\RestfulBooker\html-report

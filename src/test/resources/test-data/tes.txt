@@ -1,0 +1,4 @@
+throw:1
+throw is used for to throw custom exception.2
+throw is used for to throw custom3
+throw is used for to throw custom4
