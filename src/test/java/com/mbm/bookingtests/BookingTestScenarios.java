@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.mbm.api.BookingAPIs;
 import com.mbm.bookingpojos.CreateBooking;
 import com.mbm.client.AssertionUtil;
 import com.mbm.reports.ExtentReport;

@@ -32,7 +32,7 @@ public class JwtTokenManager {
 
 	public synchronized String getAccessToken(String username, String password) {
 		if (accessToken == null || isTokenExpired()) {
-		return	generateToken(username, password);
+			return generateToken(username, password);
 		}
 		return accessToken;
 	}
@@ -60,41 +60,37 @@ public class JwtTokenManager {
 			break;
 
 		case JWT:
-			response = RestAssured.given().baseUri(PropertyUtils.get(ConfigProperties.BASEURL)).basePath(EndPoints.LOGIN)
-					.contentType(ContentType.JSON).body(CustomerCredentials.builder().username(username).password(password).build())
-					.when().post();
+			response = RestAssured.given().baseUri(PropertyUtils.get(ConfigProperties.BASEURL))
+					.basePath(EndPoints.LOGIN).contentType(ContentType.JSON)
+					.body(CustomerCredentials.builder().username(username).password(password).build()).when().post();
 			break;
 
 		default:
 			throw new IllegalArgumentException("Unsupported auth type");
 		}
 		validateResponse(response);
-		String accessToken = response.jsonPath().getString("accessToken");
+		accessToken = response.jsonPath().getString("accessToken");
 
 		String[] parts = accessToken.split("\\.");
 
-		String payload = new String(
-		        Base64.getUrlDecoder().decode(parts[1])
-		);
+		String payload = new String(Base64.getUrlDecoder().decode(parts[1]));//{"sub":"vikram","iat":1784281647,"exp":1784285247}
 
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
-		    JsonNode jsonNode = mapper.readTree(payload);
+			JsonNode jsonNode = mapper.readTree(payload);
 
-		    if (jsonNode.has("exp")) {
-		        long exp = jsonNode.get("exp").asLong();
-		      //  System.out.println(exp);
-		        tokenExpiryTime = (exp * 1000L) - (bufferSeconds() * 1000L);
-		    } else {
-		        throw new TokenGenerationException("Expiry claim not found in JWT");
-		    }
+			if (jsonNode.has("exp")) {
+				long exp = jsonNode.get("exp").asLong();
+				tokenExpiryTime = (exp * 1000L) - (bufferSeconds() * 1000L);
+			} else {
+				throw new TokenGenerationException("Expiry claim not found in JWT");
+			}
 
 		} catch (JsonProcessingException e) {
-		    throw new TokenGenerationException("Invalid JWT token format", e);
+			throw new TokenGenerationException("Invalid JWT token format", e);
 		}
-		//System.out.println(accessToken); System.exit(0);
-	
+
 		return accessToken;
 	}
 

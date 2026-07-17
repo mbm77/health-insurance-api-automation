@@ -1,4 +1,4 @@
-package com.mbm.bookingtests;
+package com.mbm.api;
 
 import java.util.Map;
 

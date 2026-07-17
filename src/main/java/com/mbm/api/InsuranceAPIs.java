@@ -1,4 +1,4 @@
-package com.mbm.insurance_tests;
+package com.mbm.api;
 
 import com.mbm.client.ApiClient;
 import com.mbm.endpoints.EndPoints;

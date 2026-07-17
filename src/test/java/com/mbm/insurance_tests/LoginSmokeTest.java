@@ -5,6 +5,7 @@ import java.util.Map;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
+import com.mbm.api.InsuranceAPIs;
 import com.mbm.bookingtests.BaseTest;
 import com.mbm.insurance_pojo.CustomerCredentials;
 import com.mbm.payload.InsurancePayloads;

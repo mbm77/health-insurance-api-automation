@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.testng.annotations.Test;
 
+import com.mbm.api.BookingAPIs;
+
 import io.restassured.response.Response;
 
 public class JsonDataDrivenTests {

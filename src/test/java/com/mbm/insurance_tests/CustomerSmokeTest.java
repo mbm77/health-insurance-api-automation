@@ -3,6 +3,7 @@ package com.mbm.insurance_tests;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
+import com.mbm.api.InsuranceAPIs;
 import com.mbm.auth.JwtTokenManager;
 import com.mbm.bookingtests.BaseTest;
 import com.mbm.framework.request.RequestOptions;
