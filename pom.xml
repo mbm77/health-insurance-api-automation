@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mbm.restassured</groupId>
-	<artifactId>HealthInsuranceAPI</artifactId>
+	<artifactId>HealthInsuranceAPIAutomation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>HealthInsuranceAPI</name>
-	<description>This Framework Uses TestNg, Java, Extent Reports, Maven</description>
+	<name>HealthInsuranceAPIAutomation</name>
+	<description>HealthInsuranceAPIAutomation</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
