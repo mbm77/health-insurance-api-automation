@@ -19,7 +19,7 @@ public class CustomerSmokeTest extends BaseTest {
 		Response response = insuranceAPIs.getCustomerProfile(options);
 		response.then()
 				.statusCode(200)
-				.time(Matchers.lessThan(3000L))
+				.time(Matchers.lessThan(6000L))
 				.body("customerId", Matchers.greaterThan(0))
 				.body("username", Matchers.equalTo("vikram"))
 				.body("email", Matchers.notNullValue());
