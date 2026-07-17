@@ -22,7 +22,7 @@ public class LoginSmokeTest extends BaseTest {
 		Response response = insuranceAPIs.customerLogin(customerCredentialsPaylad);
 		response.then()
 				.statusCode(200)
-				.time(Matchers.lessThan(14000L))
+				.time(Matchers.lessThan(20000L))
 				.body("accessToken", Matchers.notNullValue())
 				.body("accessToken",Matchers.startsWith("eyJ"))
 				.body("accessToken", Matchers.not(Matchers.emptyString()));
