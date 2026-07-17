@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        bat 'mvn clean test'
+                        bat 'mvn clean test -DsuiteXmlFile=insurance_testng.xml'
                     } catch (Exception e) {
                         echo "Tests failed, but continuing to generate reports..."
                     }

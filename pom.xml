@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mbm.restassured</groupId>
-	<artifactId>AdvancedRestAssuredFramework</artifactId>
+	<artifactId>HealthInsuranceAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>RestAssuredFrameworkByAmodMahajan</name>
+	<name>HealthInsuranceAPI</name>
 	<description>This Framework Uses TestNg, Java, Extent Reports, Maven</description>
 
 	<properties>
@@ -46,7 +46,7 @@
 					<configuration>
 
 						<suiteXmlFiles>
-							<suiteXmlFile>testng.xml</suiteXmlFile>
+							<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 						</suiteXmlFiles>
 					</configuration>
 				</plugin>
