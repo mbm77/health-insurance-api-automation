@@ -6,8 +6,8 @@
 	</listeners>
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="com.mbm.insurance_tests.LoginSmokeTest" />
-			<class name="com.mbm.insurance_tests.CustomerSmokeTest" />
+			<!-- <class name="com.mbm.insurance.tests.customer.CustomerTests" /> -->
+			<class name="com.mbm.insurance.tests.policy.PolicyTests" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

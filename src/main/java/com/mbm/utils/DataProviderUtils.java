@@ -19,10 +19,10 @@ import org.testng.annotations.DataProvider;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mbm.bookingpojos.Booking;
-import com.mbm.bookingpojos.BookingDates;
-import com.mbm.bookingpojos.CreateBooking;
 import com.mbm.constants.FrameworkConstants;
+import com.mbm.dto.booking.Booking;
+import com.mbm.dto.booking.BookingDates;
+import com.mbm.dto.booking.CreateBooking;
 import com.mbm.poijiutils.BookingExcel;
 import com.poiji.bind.Poiji;;
 
@@ -54,7 +54,14 @@ public class DataProviderUtils {
 		List<Map<String, String>> loginData = ExcelUtils.getDataFromExcel(FrameworkConstants.getExcelPath(),
 				FrameworkConstants.getLoginDataSheet());
 		return loginData.toArray();
-		
+
+	}
+
+	@DataProvider(name = "customerProfileData")
+	public Object[] getCustomerData() {
+		List<Map<String, String>> customerData = ExcelUtils.getDataFromExcel(FrameworkConstants.getExcelPath(),
+				FrameworkConstants.getCustomerProfileData());
+		return customerData.toArray();
 	}
 
 	@DataProvider(name = "BookingDataByPoiji", parallel = false)

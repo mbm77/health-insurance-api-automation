@@ -6,12 +6,12 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.mbm.insurance_tests.CustomerSmokeTest">
+      <class name="com.mbm.insurance.tests.policy.PolicyTests">
         <methods>
-          <include name="getProfile_Should_ReturnCustomerProfile"/>
           <include name="afterMethod"/>
+          <include name="getPolicyTest"/>
         </methods>
-      </class> <!-- com.mbm.insurance_tests.CustomerSmokeTest -->
+      </class> <!-- com.mbm.insurance.tests.policy.PolicyTests -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

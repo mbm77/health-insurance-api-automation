@@ -8,14 +8,14 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.mbm.api.BookingAPIs;
-import com.mbm.bookingpojos.CreateBooking;
+import com.mbm.api.BookingApi;
 import com.mbm.client.AssertionUtil;
+import com.mbm.dto.booking.CreateBooking;
 import com.mbm.reports.ExtentReport;
 
 import io.restassured.response.Response;
 
-public class BookingTestScenarios extends BookingAPIs {
+public class BookingTestScenarios extends BookingApi {
 
 	@Test(dataProvider = "BookingDataScenarioExcel", dataProviderClass = com.mbm.utils.DataProviderUtils.class)
 	public void createBookingAndVerifyResponse(CreateBooking createBooking)

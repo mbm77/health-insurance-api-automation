@@ -8,15 +8,17 @@ import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 
-import com.mbm.bookingpojos.Booking;
-import com.mbm.bookingpojos.BookingTestData;
-import com.mbm.bookingpojos.CreateBooking;
-import com.mbm.bookingpojos.TokenCredentials;
+import com.mbm.auth.TokenManager;
+import com.mbm.dto.booking.Booking;
+import com.mbm.dto.booking.BookingTestData;
+import com.mbm.dto.booking.CreateBooking;
+import com.mbm.dto.booking.TokenCredentials;
+import com.mbm.dto.customer.CustomerLoginRequest;
+import com.mbm.dto.customer.CustomerUpdateRequest;
 import com.mbm.endpoints.EndPoints;
 import com.mbm.enums.ConfigProperties;
 import com.mbm.filelogging.FileLogger;
 import com.mbm.framework.request.RequestOptions;
-import com.mbm.insurance_pojo.CustomerCredentials;
 import com.mbm.reports.ExtentLogger;
 import com.mbm.utils.PropertyUtils;
 
@@ -71,16 +73,21 @@ public class ApiClient {
 		return requestSpec;
 	}
 
-	private static void logRequestInReport(RequestSpecification requestSpecification, Integer bookingId) {
+	private static void logRequestInReport(RequestSpecification requestSpecification, Map<String, Object> pathParams) {
 		QueryableRequestSpecification queryableRequestSpecification = SpecificationQuerier.query(requestSpecification);
 
 		String baseUrl = queryableRequestSpecification.getBaseUri();
-		String endpoint =  queryableRequestSpecification.getBasePath();
-		if (bookingId != null) {
-			endpoint = endpoint + bookingId;
+		String endpoint = queryableRequestSpecification.getBasePath();
+
+		if (pathParams != null) {
+			
+			for (Map.Entry<String, Object> entry : pathParams.entrySet()) {
+				endpoint = endpoint.replace("{" + entry.getKey() + "}", String.valueOf(entry.getValue()));
+			}
+
 		}
-		ExtentLogger.logInfoDetails("Endpoint is " + baseUrl+endpoint);
-		FileLogger.logInfoDetails("Endpoint is " + baseUrl+endpoint);
+		ExtentLogger.logInfoDetails("Endpoint is " + baseUrl + endpoint);
+		FileLogger.logInfoDetails("Endpoint is " + baseUrl + endpoint);
 
 		String method = queryableRequestSpecification.getMethod();
 		ExtentLogger.logInfoDetails("Method is " + method);
@@ -215,7 +222,7 @@ public class ApiClient {
 
 		Response response = requestSpecification.get();
 
-		logRequestInReport(requestSpecification, bookingId);
+		logRequestInReport(requestSpecification, options.getPathParams());
 		logResponseInReport(response);
 		return response;
 	}
@@ -234,7 +241,7 @@ public class ApiClient {
 
 		RequestSpecification requestSpecification = getRequestSpecification(baseUrl, basePath, options);
 		Response response = requestSpecification.put();
-		logRequestInReport(requestSpecification, bookingId);
+		logRequestInReport(requestSpecification, options.getPathParams());
 		logResponseInReport(response);
 		return response;
 	}
@@ -245,7 +252,7 @@ public class ApiClient {
 				.headers(headers).build();
 		RequestSpecification requestSpec = getRequestSpecification(baseUrl, basePath, options);
 		Response response = requestSpec.put();
-		logRequestInReport(requestSpec, bookingId);
+		logRequestInReport(requestSpec, options.getPathParams());
 		logResponseInReport(response);
 		return response;
 
@@ -256,7 +263,7 @@ public class ApiClient {
 		RequestOptions options = RequestOptions.builder().pathParam("bookingId", bookingId).headers(headers).build();
 		RequestSpecification requestSpec = getRequestSpecification(baseUrl, basePath, options);
 		Response response = requestSpec.delete();
-		logRequestInReport(requestSpec, bookingId);
+		logRequestInReport(requestSpec, options.getPathParams());
 		logResponseInReport(response);
 		return response;
 
@@ -288,7 +295,7 @@ public class ApiClient {
 		return ApiClient.performTokenPost(PropertyUtils.get(ConfigProperties.BASEURL), EndPoints.AUTH, tokenPayload);
 	}
 
-	public static Response performCustomerLogin(String baseUrl, String basePath, CustomerCredentials requestPayload) {
+	public static Response performCustomerLogin(String baseUrl, String basePath, CustomerLoginRequest requestPayload) {
 		RequestOptions options = RequestOptions.builder().body(requestPayload).build();
 		RequestSpecification requestSpecification = getRequestSpecification(baseUrl, basePath, options);
 		Response response = requestSpecification.when().post();
@@ -297,10 +304,34 @@ public class ApiClient {
 		return response;
 	}
 
-	public static Response getCustomerData(String baseUrl, String basePath, RequestOptions options) {
+	public static Response getCustomerData(String baseUrl, String basePath) {
+		RequestOptions options = RequestOptions.builder()
+				.header("Authorization", "Bearer " + TokenManager.getInstance().getToken()).build();
 		RequestSpecification requestSpecification = getRequestSpecification(baseUrl, basePath, options);
 		Response response = requestSpecification.when().get();
 		logRequestInReport(requestSpecification, null);
+		logResponseInReport(response);
+		return response;
+	}
+
+	public static Response updateCustomerProfile(String baseUrl, String basePath, CustomerUpdateRequest payload) {
+		RequestOptions options = RequestOptions.builder()
+				.header("Authorization", "Bearer " + TokenManager.getInstance().getToken()).body(payload).build();
+		RequestSpecification requestSpecification = getRequestSpecification(baseUrl, basePath, options);
+		Response response = requestSpecification.when().put();
+		logRequestInReport(requestSpecification, null);
+		logResponseInReport(response);
+		return response;
+	}
+
+	public static Response getPolicyDetails(String baseUrl, String basePath) {
+		RequestOptions options = RequestOptions.builder()
+				.header("Authorization", "Bearer " + TokenManager.getInstance().getToken())
+				.pathParam("policyId", 1)
+				.build();
+		RequestSpecification requestSpecification = getRequestSpecification(baseUrl, basePath, options);
+		Response response = requestSpecification.when().get();
+		logRequestInReport(requestSpecification, options.getPathParams());
 		logResponseInReport(response);
 		return response;
 	}

@@ -11,6 +11,7 @@ public class FrameworkConstants {
 	private static final String EXCELPATH = RESOURCEPATH + "test-data/BookingData.xlsx";
 	private static final String JSONBOOKINGDATA = RESOURCEPATH + "test-data/booking_data.json";
 	private static final String LOGINDATASHEET = "login_data";
+	private static final String CUSTOMER_PROFILE_DATA_SHEET = "customer_profile_data"; 
 
 	public static String getResourcePath() {
 		return RESOURCEPATH;
@@ -38,6 +39,10 @@ public class FrameworkConstants {
 	
 	public static String getLoginDataSheet() {
 		return LOGINDATASHEET;
+	}
+	
+	public static String getCustomerProfileData() {
+		return CUSTOMER_PROFILE_DATA_SHEET;
 	}
 
 }

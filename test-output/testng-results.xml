@@ -1,38 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-17T15:26:42 IST" name="Suite" finished-at="2026-07-17T15:26:51 IST" duration-ms="8786">
+  <suite started-at="2026-07-18T15:48:45 IST" name="Suite" finished-at="2026-07-18T15:48:51 IST" duration-ms="6200">
     <groups>
     </groups>
-    <test started-at="2026-07-17T15:26:42 IST" name="Test" finished-at="2026-07-17T15:26:51 IST" duration-ms="8786">
-      <class name="com.mbm.insurance_tests.CustomerSmokeTest">
-        <test-method signature="getProfile_Should_ReturnCustomerProfile()[pri:0, instance:com.mbm.insurance_tests.CustomerSmokeTest@4af0df05]" started-at="2026-07-17T15:26:50 IST" name="getProfile_Should_ReturnCustomerProfile" finished-at="2026-07-17T15:26:51 IST" duration-ms="861" status="PASS">
+    <test started-at="2026-07-18T15:48:45 IST" name="Test" finished-at="2026-07-18T15:48:51 IST" duration-ms="6200">
+      <class name="com.mbm.insurance.tests.policy.PolicyTests">
+        <test-method signature="getPolicyTest()[pri:0, instance:com.mbm.insurance.tests.policy.PolicyTests@1338fb5]" started-at="2026-07-18T15:48:45 IST" name="getPolicyTest" finished-at="2026-07-18T15:48:51 IST" duration-ms="5784" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getProfile_Should_ReturnCustomerProfile -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.mbm.insurance_tests.CustomerSmokeTest@4af0df05]" started-at="2026-07-17T15:26:51 IST" name="afterMethod" finished-at="2026-07-17T15:26:51 IST" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- com.mbm.insurance_tests.CustomerSmokeTest -->
-      <class name="com.mbm.insurance_tests.LoginSmokeTest">
-        <test-method signature="login_Should_return_JwtToken(java.util.Map)[pri:0, instance:com.mbm.insurance_tests.LoginSmokeTest@6c45ee6e]" started-at="2026-07-17T15:26:44 IST" name="login_Should_return_JwtToken" data-provider="loginData" finished-at="2026-07-17T15:26:50 IST" duration-ms="6150" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{username=vikram, password=vikram1234}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login_Should_return_JwtToken -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.mbm.insurance_tests.LoginSmokeTest@6c45ee6e]" started-at="2026-07-17T15:26:50 IST" name="afterMethod" finished-at="2026-07-17T15:26:50 IST" duration-ms="15" status="PASS">
+        </test-method> <!-- getPolicyTest -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.mbm.insurance.tests.policy.PolicyTests@1338fb5]" started-at="2026-07-18T15:48:51 IST" name="afterMethod" finished-at="2026-07-18T15:48:51 IST" duration-ms="51" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-      </class> <!-- com.mbm.insurance_tests.LoginSmokeTest -->
+      </class> <!-- com.mbm.insurance.tests.policy.PolicyTests -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

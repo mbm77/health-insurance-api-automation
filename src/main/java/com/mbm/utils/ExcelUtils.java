@@ -20,7 +20,7 @@ public final class ExcelUtils {
 
 	public static List<Map<String, String>> getDataFromExcel(String filePath,String sheetName) {
 		List<Map<String, String>> list = new ArrayList<>();
-		Map<String, String> map = null;
+		Map<String, String> map;
 		try(FileInputStream fis = new FileInputStream(filePath);
 				XSSFWorkbook workbook = new XSSFWorkbook(fis);) {
 			XSSFSheet sheet = workbook.getSheet(sheetName);
@@ -39,7 +39,8 @@ public final class ExcelUtils {
 		} catch (FileNotFoundException e) {
 			//throw new InvalidPathForExcelException("Excel file you trying to read is not found");
 		} catch (IOException e) {
-			//throw new FrameworkException("Some IO Exception happened while reading excel file");
+			// throw new FrameworkException("Some IO Exception happened while reading excel
+			// file");
 		}
 		return list;
 	}

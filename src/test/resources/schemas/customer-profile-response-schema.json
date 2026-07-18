@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "customerId",
+    "userId",
+    "username",
+    "email",
+    "phone",
+    "enabled",
+    "firstName",
+    "lastName",
+    "dateOfBirth",
+    "gender",
+    "aadhaarNumber",
+    "panNumber",
+    "bloodGroup",
+    "maritalStatus",
+    "occupation",
+    "annualIncome",
+    "address",
+    "city",
+    "state",
+    "country",
+    "pincode"
+  ],
+  "properties": {
+    "customerId": {
+      "type": "integer"
+    },
+    "userId": {
+      "type": "integer"
+    },
+    "username": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "format": "date"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "aadhaarNumber": {
+      "type": "string"
+    },
+    "panNumber": {
+      "type": "string"
+    },
+    "bloodGroup": {
+      "type": "string"
+    },
+    "maritalStatus": {
+      "type": "string"
+    },
+    "occupation": {
+      "type": "string"
+    },
+    "annualIncome": {
+      "type": "number"
+    },
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "pincode": {
+      "type": "string"
+    }
+  }
+}

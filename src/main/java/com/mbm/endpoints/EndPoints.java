@@ -12,6 +12,8 @@ public class EndPoints {
     public static final String CLAIMS = "/claims";
     public static final String LOGIN = "/auth/login";
     public static final String CUSTOMER_PROFILE = "/customers/profile";
+    public static final String UPDATE_CUSTOMER_PROFILE = "/customers/profile";
+    public static final String GET_POLICY = "/customers/policies/{policyId}";
 }
 
 

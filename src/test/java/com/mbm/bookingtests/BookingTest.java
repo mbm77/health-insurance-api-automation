@@ -15,29 +15,30 @@ import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mbm.api.BookingAPIs;
-import com.mbm.bookingpojos.Booking;
-import com.mbm.bookingpojos.BookingResponse;
-import com.mbm.bookingpojos.TokenCredentials;
+import com.mbm.api.BookingApi;
+import com.mbm.base.BaseTest;
 import com.mbm.client.AssertionUtil;
-import com.mbm.payload.Payloads;
+import com.mbm.dto.booking.Booking;
+import com.mbm.dto.booking.BookingResponse;
+import com.mbm.dto.booking.TokenCredentials;
+import com.mbm.payload.BookingPayload;
 import com.mbm.utils.DateUtils;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 
-public class BookingTests extends BaseTest {
+public class BookingTest extends BaseTest {
 
 	private Booking createdBooking;
 	private Integer bookingId;
 
-	BookingAPIs bookingAPIs = new BookingAPIs();
+	BookingApi bookingAPIs = new BookingApi();
 
 	@Test
 	public void createBookingUsingJsonString() throws StreamReadException, DatabindException, IOException {
 
 		List<String> bookingdates = Arrays.asList("2018-01-01", "2019-01-01");
-		String payload = Payloads.getCreateBookingPayload("java", "selenium", 1000, true, bookingdates, "super bowls");
+		String payload = BookingPayload.getCreateBookingPayload("java", "selenium", 1000, true, bookingdates, "super bowls");
 
 		Response response = bookingAPIs.createBooking(payload);
 
@@ -51,7 +52,7 @@ public class BookingTests extends BaseTest {
 
 		List<String> bookingdates = Arrays.asList(DateUtils.getCheckinDate(), DateUtils.getCheckoutDate());
 
-		Map<String, Object> payload = Payloads.getCreateBookingPayloadFromMap("java", "selenium", 1000, true,
+		Map<String, Object> payload = BookingPayload.getCreateBookingPayloadFromMap("java", "selenium", 1000, true,
 				bookingdates, "super bowls");
 		// System.out.println(payload);System.exit(0);
 		Response response = bookingAPIs.createBooking(payload);
@@ -63,7 +64,7 @@ public class BookingTests extends BaseTest {
 	@Test
 	public void createBookingUsingPojWithBuilder() throws StreamReadException, DatabindException, IOException {
 
-		Booking payloadFromBuilder = Payloads.getCreateBookingPayloadFromPojo();
+		Booking payloadFromBuilder = BookingPayload.getCreateBookingPayloadFromPojo();
 		Response response = bookingAPIs.createBooking(payloadFromBuilder);
 
 		response.prettyPrint();
@@ -169,7 +170,7 @@ public class BookingTests extends BaseTest {
 
 	@Test(priority = 3)
 	public void getAccessTokenAndVerifyResponse(Method m) {
-		TokenCredentials tokenPayload = Payloads.getCreateTokenPayload();
+		TokenCredentials tokenPayload = BookingPayload.getCreateTokenPayload();
 		Response response = bookingAPIs.getAccessToken(tokenPayload);
 		String accessToken = response.jsonPath().getString("token");
 		System.out.println(accessToken);
@@ -178,7 +179,7 @@ public class BookingTests extends BaseTest {
 
 	@Test(priority = 4)
 	public void getUpdateBookingAndVerifyResponse(Method m) {
-		Booking updatedPayload = Payloads.getUpdateBookingPayloadFromPojo(createdBooking);
+		Booking updatedPayload = BookingPayload.getUpdateBookingPayloadFromPojo(createdBooking);
 		Response response = bookingAPIs.updateBooking(bookingId, updatedPayload);
 		createdBooking = updatedPayload;
 		Assert.assertEquals(response.statusCode(), 200);
@@ -188,7 +189,7 @@ public class BookingTests extends BaseTest {
 
 	@Test(priority = 5)
 	public void getPartialUpdateBooking(Method m) {
-		Map<String, Object> partiallyUpdatedBooking = Payloads.getPartialUpdateBookingPayload();
+		Map<String, Object> partiallyUpdatedBooking = BookingPayload.getPartialUpdateBookingPayload();
 		bookingAPIs.partiallyUpdateBooking(bookingId, partiallyUpdatedBooking);
 		System.out.println("✅ All Assertions Passed! in " + m.getName());
 	}

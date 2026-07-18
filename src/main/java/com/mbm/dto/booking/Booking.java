@@ -1,4 +1,4 @@
-package com.mbm.bookingpojos;
+package com.mbm.dto.booking;
 
 import java.util.stream.Stream;
 

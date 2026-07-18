@@ -8,12 +8,15 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.mbm.auth.TokenManager;
+import com.mbm.enums.ConfigProperties;
 import com.mbm.filelogging.FileLogManager;
 import com.mbm.filelogging.FileLogger;
 import com.mbm.filelogutils.CreateDirForFileLogUtils;
 import com.mbm.reports.ExtentLogger;
 import com.mbm.reports.ExtentManager;
 import com.mbm.reports.ExtentReport;
+import com.mbm.utils.PropertyUtils;
 
 public class ListenerClass implements ITestListener, ISuiteListener {
 
@@ -21,6 +24,15 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 
 	@Override
 	public void onStart(ISuite suite) {
+		
+		
+
+		        TokenManager.getInstance()
+		                    .userLogin(
+		                    	PropertyUtils.get(ConfigProperties.USERNAME), 
+		                    	PropertyUtils.get(ConfigProperties.PASSWORD)
+		                    );
+		 
 		String reportFileName = ExtentReport.getReportNameWithTimeStamp();
 		String fullReportPath = System.getProperty("user.dir") + "/reports/" + reportFileName;
 		ExtentReport.createInstance(fullReportPath, "Test API Automation Report", "Test Execution Report");

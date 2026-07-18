@@ -1,11 +1,11 @@
-package com.mbm.insurance_pojo;
+package com.mbm.dto.customer;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class CustomerCredentials {
+public class CustomerLoginRequest {
 	private String username;
 	private String password;
 

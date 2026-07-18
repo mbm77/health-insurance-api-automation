@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "companyId",
+    "companyName",
+    "planId",
+    "planName",
+    "planDescription",
+    "coverageAmount",
+    "premiumAmount",
+    "policyTermInMonths",
+    "waitingPeriodInDays",
+    "policyId",
+    "policyName",
+    "policyCode",
+    "policyType",
+    "minAge",
+    "maxAge",
+    "status",
+    "coverages",
+    "exclusions"
+  ],
+  "properties": {
+    "companyId": {
+      "type": "integer"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "planId": {
+      "type": "integer"
+    },
+    "planName": {
+      "type": "string"
+    },
+    "planDescription": {
+      "type": "string"
+    },
+    "coverageAmount": {
+      "type": "number"
+    },
+    "premiumAmount": {
+      "type": "number"
+    },
+    "policyTermInMonths": {
+      "type": "integer"
+    },
+    "waitingPeriodInDays": {
+      "type": "integer"
+    },
+    "policyId": {
+      "type": "integer"
+    },
+    "policyName": {
+      "type": "string"
+    },
+    "policyCode": {
+      "type": "string"
+    },
+    "policyType": {
+      "type": "string"
+    },
+    "minAge": {
+      "type": "integer"
+    },
+    "maxAge": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    },
+    "coverages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "coverageId",
+          "policyId",
+          "policyName",
+          "coverageName",
+          "coverageAmount",
+          "description",
+          "status"
+        ],
+        "properties": {
+          "coverageId": {
+            "type": "integer"
+          },
+          "policyId": {
+            "type": "integer"
+          },
+          "policyName": {
+            "type": "string"
+          },
+          "coverageName": {
+            "type": "string"
+          },
+          "coverageAmount": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "exclusionId",
+          "policyId",
+          "policyName",
+          "exclusionName",
+          "description",
+          "status"
+        ],
+        "properties": {
+          "exclusionId": {
+            "type": "integer"
+          },
+          "policyId": {
+            "type": "integer"
+          },
+          "policyName": {
+            "type": "string"
+          },
+          "exclusionName": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

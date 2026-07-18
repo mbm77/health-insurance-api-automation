@@ -1,7 +1,7 @@
 package com.mbm.poijiutils;
 
-import com.mbm.bookingpojos.Booking;
-import com.mbm.bookingpojos.BookingDates;
+import com.mbm.dto.booking.Booking;
+import com.mbm.dto.booking.BookingDates;
 import com.poiji.annotation.ExcelCellName;
 import com.poiji.annotation.ExcelRow;
 

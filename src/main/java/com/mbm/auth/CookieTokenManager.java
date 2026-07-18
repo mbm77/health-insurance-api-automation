@@ -1,8 +1,8 @@
 package com.mbm.auth;
 
-import com.mbm.bookingpojos.TokenCredentials;
 import com.mbm.client.ApiClient;
-import com.mbm.payload.Payloads;
+import com.mbm.dto.booking.TokenCredentials;
+import com.mbm.payload.BookingPayload;
 
 import io.restassured.response.Response;
 
@@ -13,7 +13,7 @@ public class CookieTokenManager {
 	public static String getCookieToken() {
 
 		if (cookieToken == null) {
-			TokenCredentials tokenPayload = Payloads.getCreateTokenPayload();
+			TokenCredentials tokenPayload = BookingPayload.getCreateTokenPayload();
 			Response response = ApiClient.getCookieAccessToken(tokenPayload);
 			cookieToken = response.jsonPath().getString("token");
 		}

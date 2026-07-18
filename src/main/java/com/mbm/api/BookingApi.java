@@ -2,11 +2,11 @@ package com.mbm.api;
 
 import java.util.Map;
 
-import com.mbm.bookingpojos.Booking;
-import com.mbm.bookingpojos.BookingTestData;
-import com.mbm.bookingpojos.CreateBooking;
-import com.mbm.bookingpojos.TokenCredentials;
 import com.mbm.client.ApiClient;
+import com.mbm.dto.booking.Booking;
+import com.mbm.dto.booking.BookingTestData;
+import com.mbm.dto.booking.CreateBooking;
+import com.mbm.dto.booking.TokenCredentials;
 import com.mbm.endpoints.EndPoints;
 import com.mbm.enums.ConfigProperties;
 import com.mbm.utils.HeaderUtils;
@@ -14,7 +14,7 @@ import com.mbm.utils.PropertyUtils;
 
 import io.restassured.response.Response;
 
-public class BookingAPIs {
+public class BookingApi {
 
 	private final String baseUrl = PropertyUtils.get(ConfigProperties.BASEURL);
 	Map<String, String> headers;

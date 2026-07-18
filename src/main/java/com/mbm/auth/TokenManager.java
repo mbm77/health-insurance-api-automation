@@ -5,35 +5,51 @@ import java.util.Base64;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mbm.dto.customer.CustomerLoginRequest;
 import com.mbm.endpoints.EndPoints;
 import com.mbm.enums.AuthType;
 import com.mbm.enums.ConfigProperties;
 import com.mbm.exceptions.TokenGenerationException;
-import com.mbm.insurance_pojo.CustomerCredentials;
 import com.mbm.utils.PropertyUtils;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class JwtTokenManager {
+public class TokenManager {
 	private String accessToken;
-	private long tokenExpiryTime = 0;
+	private long tokenExpiryTime;
 	Response response;
 
-	private static final JwtTokenManager INSTANCE = new JwtTokenManager();
+	private static final TokenManager INSTANCE = new TokenManager();
 
-	private JwtTokenManager() {
+	private TokenManager() {
 	}
 
-	public static JwtTokenManager getInstance() {
+	public static TokenManager getInstance() {
 		return INSTANCE;
 	}
 
-	public synchronized String getAccessToken(String username, String password) {
-		if (accessToken == null || isTokenExpired()) {
-			return generateToken(username, password);
-		}
+	public void userLogin(String username, String password) {
+		getAccessToken(username, password);
+	}
+
+	public String getAccessToken(String username, String password) {
+
+	    if(accessToken == null || isTokenExpired()) {
+
+	        synchronized(this) {	//This avoids multiple threads waiting unnecessarily.
+
+	            if(accessToken == null || isTokenExpired()) {
+	                generateToken(username,password);
+	            }
+	        }
+	    }
+
+	    return accessToken;
+	}
+	
+	public String getToken() {
 		return accessToken;
 	}
 
@@ -62,7 +78,7 @@ public class JwtTokenManager {
 		case JWT:
 			response = RestAssured.given().baseUri(PropertyUtils.get(ConfigProperties.BASEURL))
 					.basePath(EndPoints.LOGIN).contentType(ContentType.JSON)
-					.body(CustomerCredentials.builder().username(username).password(password).build()).when().post();
+					.body(CustomerLoginRequest.builder().username(username).password(password).build()).when().post();
 			break;
 
 		default:
@@ -73,7 +89,11 @@ public class JwtTokenManager {
 
 		String[] parts = accessToken.split("\\.");
 
-		String payload = new String(Base64.getUrlDecoder().decode(parts[1]));//{"sub":"vikram","iat":1784281647,"exp":1784285247}
+		if (parts.length != 3) {
+			throw new TokenGenerationException("Invalid JWT token format");
+		}
+
+		String payload = new String(Base64.getUrlDecoder().decode(parts[1]));// {"sub":"vikram","iat":1784281647,"exp":1784285247}
 
 		ObjectMapper mapper = new ObjectMapper();
 

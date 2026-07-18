@@ -5,13 +5,13 @@ import java.util.Map;
 
 import org.testng.annotations.Test;
 
-import com.mbm.api.BookingAPIs;
+import com.mbm.api.BookingApi;
 
 import io.restassured.response.Response;
 
 public class JsonDataDrivenTests {
 
-	private BookingAPIs bookingAPIs = new BookingAPIs();
+	private BookingApi bookingAPIs = new BookingApi();
 
 	@Test(dataProvider = "bookingDataFromJsonFile", dataProviderClass = com.mbm.utils.DataProviderUtils.class)
 	public void createBookingTest(Map<String, Object> bookingData, Method m) throws Exception {

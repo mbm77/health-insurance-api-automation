@@ -4,19 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.mbm.bookingpojos.Booking;
-import com.mbm.bookingpojos.BookingDates;
-import com.mbm.bookingpojos.TokenCredentials;
+import com.mbm.dto.booking.Booking;
+import com.mbm.dto.booking.BookingDates;
+import com.mbm.dto.booking.TokenCredentials;
 import com.mbm.enums.ConfigProperties;
-import com.mbm.insurance_pojo.CustomerCredentials;
 import com.mbm.utils.DateUtils;
 import com.mbm.utils.PropertyUtils;
 import com.mbm.utils.RandomDataGenerator;
 import com.mbm.utils.RandomDataTypeNames;
 
-public class Payloads {
+public class BookingPayload {
 
-	private Payloads() {
+	private BookingPayload() {
 	}
 
 	public static String getCreateBookingPayload(String firstname, String lastname, int totalprice, boolean depositpaid,

@@ -1,4 +1,4 @@
-package com.mbm.bookingpojos;
+package com.mbm.dto.booking;
 
 import lombok.Builder;
 import lombok.Getter;
