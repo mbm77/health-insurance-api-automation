@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -60,7 +60,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Suite" class="navigator-link ">
-                    <span>0 groups</span>
+                    <span>2 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mbm.insurance.tests.policy.PolicyTests" class="method navigator-link" hash-for-method="getPolicyTest">getPolicyTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +117,17 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.mbm.insurance.tests.policy.PolicyTests" class="method navigator-link" hash-for-method="getPolicyTest">getPolicyTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="com.mbm.insurance.tests.customer.CustomerTests" class="method navigator-link" hash-for-method="customerLoginTest({username=vikram, password=vikram123})">customerLoginTest({username=vikram, password=vikram123})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mbm.insurance.tests.customer.CustomerTests" class="method navigator-link" hash-for-method="getCustomerProfileTest">getCustomerProfileTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mbm.insurance.tests.customer.CustomerTests" class="method navigator-link" hash-for-method="updateCustomerProfileTest({testName=updateCustomerProfileTest, firstName=Jane, lastName=Smith, dateOfBirth=10/10/00, gender=MA...)">updateCustomerProfileTest({testName=updateCustomerProfileTest, firstName=Jane, lastName=Smith, dateOfBirth=10/10/00, gender=MA...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -118,9 +142,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-passed">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">com.mbm.insurance.tests.policy.PolicyTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -129,6 +153,62 @@
                   <a name="getPolicyTest">
                   </a> <!-- getPolicyTest -->
                   <span class="method-name">getPolicyTest</span>
+                  <div class="stack-trace">java.lang.AssertionError: 1 expectation failed.
+JSON path companyName doesn&apos;t match.
+Expected: Star Health Insurance Ltd
+  Actual: ABC Health Insurance
+
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
+	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:270)
+	at io.restassured.specification.ResponseSpecification$body$1.callCurrent(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:117)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:244)
+	at com.mbm.insurance.tests.policy.PolicyTests.getPolicyTest(PolicyTests.java:25)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 36 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.mbm.insurance.tests.customer.CustomerTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="customerLoginTest({username=vikram, password=vikram123})">
+                  </a> <!-- customerLoginTest({username=vikram, password=vikram123}) -->
+                  <span class="method-name">customerLoginTest</span>
+                  <span class="parameters">({username=vikram, password=vikram123})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getCustomerProfileTest">
+                  </a> <!-- getCustomerProfileTest -->
+                  <span class="method-name">getCustomerProfileTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="updateCustomerProfileTest({testName=updateCustomerProfileTest, firstName=Jane, lastName=Smith, dateOfBirth=10/10/00, gender=MA...)">
+                  </a> <!-- updateCustomerProfileTest({testName=updateCustomerProfileTest, firstName=Jane, lastName=Smith, dateOfBirth=10/10/00, gender=MA...) -->
+                  <span class="method-name">updateCustomerProfileTest</span>
+                  <span class="parameters">({testName=updateCustomerProfileTest, firstName=Jane, lastName=Smith, dateOfBirth=10/10/00, gender=MALE, aadhaarNumber=123456789987, panNumber=ABCDE1234F, bloodGroup=B_POSITIVE, maritalStatus=SINGLE, occupation=Doctor, annualIncome=5000000.00, address=MG Road, city=Bengaluru, state=Karnataka, country=India, pincode=554321})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -148,6 +228,7 @@
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;com.mbm.insurance.tests.customer.CustomerTests&quot;/&gt;
       &lt;class name=&quot;com.mbm.insurance.tests.policy.PolicyTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
@@ -162,7 +243,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">Test (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -172,6 +253,22 @@
             <span class="header-content">Groups for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">regression</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">updateCustomerProfileTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">smoke</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">getCustomerProfileTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Suite" class="panel">
@@ -188,16 +285,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'getPolicyTest')
-data.setCell(0, 2, 'com.mbm.insurance.tests.policy.PolicyTests')
-data.setCell(0, 3, 5784);
+data.setCell(0, 1, 'updateCustomerProfileTest')
+data.setCell(0, 2, 'com.mbm.insurance.tests.customer.CustomerTests')
+data.setCell(0, 3, 2494);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'getPolicyTest')
+data.setCell(1, 2, 'com.mbm.insurance.tests.policy.PolicyTests')
+data.setCell(1, 3, 1691);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'customerLoginTest')
+data.setCell(2, 2, 'com.mbm.insurance.tests.customer.CustomerTests')
+data.setCell(2, 3, 1580);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'getCustomerProfileTest')
+data.setCell(3, 2, 'com.mbm.insurance.tests.customer.CustomerTests')
+data.setCell(3, 3, 854);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <span class="suite-total-time">Total running time: 6 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -223,14 +332,43 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.mbm.insurance.tests.policy.PolicyTests</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.mbm.insurance.tests.customer.CustomerTests</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">getPolicyTest</span>
+                <span class="method-name">customerLoginTest({username=vikram, password=vikram123})</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">5791 ms</span>
+                <span class="method-start">1590 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">getCustomerProfileTest</span>
+                <span class="method-start">1611 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">2472 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">updateCustomerProfileTest({testName=updateCustomerProfileTest, firstName=Jane, lastName=Smith, dateOfBirth=10/10/00, gender=MA...)</span>
+                <span class="method-start">2802 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">5299 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.mbm.insurance.tests.policy.PolicyTests</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">getPolicyTest</span>
+                <span class="method-start">5315 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">7016 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

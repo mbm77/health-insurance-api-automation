@@ -1,0 +1,44 @@
+[INFO] 2026-07-24 11:30:57 AM Test Started: com.mbm.insurance.tests.customer.CustomerTests - updateCustomerProfileTest
+
+[INFO] 2026-07-24 11:30:58 AM Endpoint is http://localhost:8081/customers/profile
+
+[INFO] 2026-07-24 11:30:58 AM Method is PUT
+
+[INFO] 2026-07-24 11:30:58 AM Request Headers are 
+
+[HEADERS] 2026-07-24 11:30:58 AM
+----------------------------------------------------
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ2aWtyYW0iLCJpYXQiOjE3ODQ4NzI4NDgsImV4cCI6MTc4NDg3NjQ0OH0.JseYjNLbzi5O2FSvylgkaT4dKopk_Ey0R8vsXi9B_o7xGTnKJtY8levnT6J7NItj
+Accept: */*
+Content-Type: application/json
+----------------------------------------------------
+
+[INFO] 2026-07-24 11:30:58 AM Request Body is
+
+[JSON] 2026-07-24 11:30:58 AM {"firstName":"Jane","lastName":"Smith","dateOfBirth":"2000-10-10","gender":"MALE","aadhaarNumber":"123456789987","panNumber":"ABCDE1234F","bloodGroup":"B_POSITIVE","maritalStatus":"SINGLE","occupation":"Doctor","annualIncome":"5000000.00","address":"MG Road","city":"Bengaluru","state":"Karnataka","country":"India","pincode":"554321"}
+
+[INFO] 2026-07-24 11:30:58 AM Response status is HTTP/1.1 200 
+
+[INFO] 2026-07-24 11:30:58 AM Response Headers are 
+
+[HEADERS] 2026-07-24 11:30:58 AM
+----------------------------------------------------
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Fri, 24 Jul 2026 06:00:58 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+----------------------------------------------------
+
+[INFO] 2026-07-24 11:30:58 AM Response Body is 
+
+[JSON] 2026-07-24 11:30:58 AM {"customerId":2,"userId":2,"username":"vikram","email":"vikram123@gmail.com","phone":"7654321088","enabled":true,"firstName":"Jane","lastName":"Smith","dateOfBirth":"2000-10-10","gender":"MALE","aadhaarNumber":"123456789987","panNumber":"ABCDE1234F","bloodGroup":"B_POSITIVE","maritalStatus":"SINGLE","occupation":"Doctor","annualIncome":5000000.00,"address":"MG Road","city":"Bengaluru","state":"Karnataka","country":"India","pincode":"554321"}
+
+[PASS] 2026-07-24 11:31:00 AM Test Passed: updateCustomerProfileTest | Duration: 2.49s
+

@@ -1,0 +1,48 @@
+[INFO] 2026-07-24 11:31:00 AM Test Started: com.mbm.insurance.tests.policy.PolicyTests - getPolicyTest
+
+[INFO] 2026-07-24 11:31:01 AM Endpoint is http://localhost:8081/customers/policies/1
+
+[INFO] 2026-07-24 11:31:01 AM Method is GET
+
+[INFO] 2026-07-24 11:31:01 AM Request Headers are 
+
+[HEADERS] 2026-07-24 11:31:01 AM
+----------------------------------------------------
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ2aWtyYW0iLCJpYXQiOjE3ODQ4NzI4NDgsImV4cCI6MTc4NDg3NjQ0OH0.JseYjNLbzi5O2FSvylgkaT4dKopk_Ey0R8vsXi9B_o7xGTnKJtY8levnT6J7NItj
+Accept: */*
+Content-Type: application/json
+----------------------------------------------------
+
+[INFO] 2026-07-24 11:31:01 AM No Request Body for GET Method
+
+[INFO] 2026-07-24 11:31:01 AM Response status is HTTP/1.1 200 
+
+[INFO] 2026-07-24 11:31:01 AM Response Headers are 
+
+[HEADERS] 2026-07-24 11:31:01 AM
+----------------------------------------------------
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Fri, 24 Jul 2026 06:01:01 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+----------------------------------------------------
+
+[INFO] 2026-07-24 11:31:01 AM Response Body is 
+
+[JSON] 2026-07-24 11:31:01 AM {"companyId":1,"companyName":"ABC Health Insurance","planId":1,"planName":"Family Floater Premium","planDescription":"Comprehensive health insurance plan.","coverageAmount":1500000.00,"premiumAmount":18000.00,"policyTermInMonths":24,"waitingPeriodInDays":60,"policyId":1,"policyName":"Mother Care Premium","policyCode":"MCP-001","policyType":"MATERNITY","minAge":21,"maxAge":45,"status":"ACTIVE","coverages":[{"coverageId":1,"policyId":1,"policyName":"Mother Care Premium","coverageName":"ICU Hospitalization Coverage","coverageAmount":750000.00,"description":"Covers ICU hospitalization expenses including room charges, nursing, and medical equipment.","status":"ACTIVE"},{"coverageId":2,"policyId":1,"policyName":"Mother Care Premium","coverageName":"Hostel Expenses","coverageAmount":500000.00,"description":"Covers in-patient hospitalization expenses.","status":"ACTIVE"}],"exclusions":[{"exclusionId":1,"policyId":1,"policyName":"Mother Care Premium","exclusionName":"Pre-existing Diseases","description":"Expenses related to pre-existing diseases are not covered during the waiting period.","status":"ACTIVE"}]}
+
+[FAIL] 2026-07-24 11:31:01 AM Test Failed: getPolicyTest | Duration: 1.689s
+
+[EXCEPTION] 2026-07-24 11:31:01 AM java.lang.AssertionError: 1 expectation failed.
+JSON path companyName doesn't match.
+Expected: Star Health Insurance Ltd
+  Actual: ABC Health Insurance
+
+

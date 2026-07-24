@@ -1,0 +1,42 @@
+[INFO] 2026-07-24 11:30:56 AM Test Started: com.mbm.insurance.tests.customer.CustomerTests - getCustomerProfileTest
+
+[INFO] 2026-07-24 11:30:57 AM Endpoint is http://localhost:8081/customers/profile
+
+[INFO] 2026-07-24 11:30:57 AM Method is GET
+
+[INFO] 2026-07-24 11:30:57 AM Request Headers are 
+
+[HEADERS] 2026-07-24 11:30:57 AM
+----------------------------------------------------
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ2aWtyYW0iLCJpYXQiOjE3ODQ4NzI4NDgsImV4cCI6MTc4NDg3NjQ0OH0.JseYjNLbzi5O2FSvylgkaT4dKopk_Ey0R8vsXi9B_o7xGTnKJtY8levnT6J7NItj
+Accept: */*
+Content-Type: application/json
+----------------------------------------------------
+
+[INFO] 2026-07-24 11:30:57 AM No Request Body for GET Method
+
+[INFO] 2026-07-24 11:30:57 AM Response status is HTTP/1.1 200 
+
+[INFO] 2026-07-24 11:30:57 AM Response Headers are 
+
+[HEADERS] 2026-07-24 11:30:57 AM
+----------------------------------------------------
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Fri, 24 Jul 2026 06:00:57 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+----------------------------------------------------
+
+[INFO] 2026-07-24 11:30:57 AM Response Body is 
+
+[JSON] 2026-07-24 11:30:57 AM {"customerId":2,"userId":2,"username":"vikram","email":"vikram123@gmail.com","phone":"7654321088","enabled":true,"firstName":null,"lastName":null,"dateOfBirth":null,"gender":null,"aadhaarNumber":null,"panNumber":null,"bloodGroup":null,"maritalStatus":null,"occupation":null,"annualIncome":null,"address":null,"city":null,"state":null,"country":null,"pincode":null}
+
+[PASS] 2026-07-24 11:30:57 AM Test Passed: getCustomerProfileTest | Duration: 0.852s
+

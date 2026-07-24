@@ -1,0 +1,43 @@
+[INFO] 2026-07-24 11:30:55 AM Test Started: com.mbm.insurance.tests.customer.CustomerTests - customerLoginTest
+
+[INFO] 2026-07-24 11:30:55 AM Endpoint is http://localhost:8081/auth/login
+
+[INFO] 2026-07-24 11:30:55 AM Method is POST
+
+[INFO] 2026-07-24 11:30:55 AM Request Headers are 
+
+[HEADERS] 2026-07-24 11:30:55 AM
+----------------------------------------------------
+Accept: */*
+Content-Type: application/json
+----------------------------------------------------
+
+[INFO] 2026-07-24 11:30:55 AM Request Body is
+
+[JSON] 2026-07-24 11:30:55 AM {"username":"vikram","password":"vikram123"}
+
+[INFO] 2026-07-24 11:30:55 AM Response status is HTTP/1.1 200 
+
+[INFO] 2026-07-24 11:30:55 AM Response Headers are 
+
+[HEADERS] 2026-07-24 11:30:55 AM
+----------------------------------------------------
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Fri, 24 Jul 2026 06:00:55 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+----------------------------------------------------
+
+[INFO] 2026-07-24 11:30:55 AM Response Body is 
+
+[JSON] 2026-07-24 11:30:55 AM {"timestamp":"2026-07-24T11:30:55.518058","status":200,"message":"Login successful","accessToken":"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ2aWtyYW0iLCJpYXQiOjE3ODQ4NzI4NTUsImV4cCI6MTc4NDg3NjQ1NX0.axEEtlwVOHfv_vQt6OLMXBK0O_XPV-Wn3ht-PvCLD7bKqJ3QLwY2sAvOn62WBJfV","tokenType":"Bearer"}
+
+[PASS] 2026-07-24 11:30:56 AM Test Passed: customerLoginTest | Duration: 1.569s
+
