@@ -22,7 +22,7 @@ public class PolicyTests extends BaseTest{
 						
 						//Company Details
 						.body("companyId", Matchers.equalTo(1))
-						.body("companyName", Matchers.equalTo("Star Health Insurance Ltd"))
+						.body("companyName", Matchers.equalTo("ABC Health Insurance"))
 						
 						//Plan Details
 						.body("planId", Matchers.equalTo(1))
